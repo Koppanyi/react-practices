@@ -4,7 +4,7 @@ import './App.css';
 let myname = "Bálint";
 
 // ciklusok a JS-ben
-let people = [ "Ottó", "Kázmér", "Béla",   ];
+let people = [ "Ottó", "Kázmér", "Béla", ];
 
 let shouldShowLanding = true;
 
@@ -34,6 +34,15 @@ const App = () => {
     
     const [pageName, setPageName] = useState("Home");
     const [shouldShowLanding, setshouldShowLanding] = useState(true);
+    const [inputValue, setInputValue] = useState("");
+
+    const cars = [
+        {brand: "Toyota", model: "yaris", topSpeed: "190km/h"},
+        {brand: "Mercedes", model: "C63", topSpeed: "260km/h"},
+        {brand: "Mazda", model: "6", topSpeed: "210km/h"},
+        {brand: "Honda", model: "Civic", topSpeed: "200km/h"},
+        {brand: "Audi", model: "A4", topSpeed: "220km/h"},
+      ];
 
     const toggle = () => {
         setshouldShowLanding(!shouldShowLanding)
@@ -66,6 +75,13 @@ const App = () => {
             <div>{ pageName === "Home" && <div>Homepage component</div> }</div>
             <div>{ pageName === "About" && <div>About component</div> }</div>
             <div>{ pageName === "Landing" && <div>Landing component</div> }</div>
+            <hr />
+            <input type="text" onChange={ (e) => setInputValue(e.target.value) } value={inputValue} />
+            <hr />
+            <button type="submit" disabled></button>
+            <hr />
+
+
         </div>
 
     )
