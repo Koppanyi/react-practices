@@ -1,23 +1,17 @@
 import  React,  { useState}   from  "react";
 import './App.css';
 
-let myname = "Bálint";
 
-// ciklusok a JS-ben
-let people = [ "Ottó", "Kázmér", "Béla",   ];
-
-let shouldShowLanding = true;
 
 /* 
+let shouldShowLanding = true;
+
 const toggle = () => {
     console.log(shouldShowLanding);
     shouldShowLanding = !shouldShowLanding;
     console.log(shouldShowLanding);
 }
-*/
 
-
-/*
 const Content = () => {
     let result;
     if (shouldShowLanding) {
@@ -31,44 +25,30 @@ const Content = () => {
 
 
 const App = () => {
-    
-    const [pageName, setPageName] = useState("Home");
-    const [shouldShowLanding, setshouldShowLanding] = useState(true);
+    // ciklusok a JS-ben
 
-    const toggle = () => {
-        setshouldShowLanding(!shouldShowLanding)
-        console.log(shouldShowLanding);
-    }
+    let myname = "Bálint";
+    let people = [ "Ottó", "Kázmér", "Béla", ];
 
 	return (
         <div>
-            <h1>Hello World</h1>
-            <p id="first">First Paragraph</p>
+            <h1>Több «p» elem létrehozása:</h1>
             <p>{ myname }</p>
-            <input type="password" placeholder="akármi" />
-            {  
-                people.map(p => (
-                    <div className="card" key={p}>
-                        <p className="card-content">{p}</p>
+            <p id="first">First Paragraph</p>
+            <hr />
+            {   // «p» elemek létrehozása map()-pel:
+                people.map( elem => (
+                    <div className="card" key={elem}>
+                        <p className="myP">{elem}</p>
                     </div>
                     )
                 )
             }
-            <p className="myp">Third Paragraph</p>
-            <div>{ shouldShowLanding ? <div>Landing page</div> : <div>Home page</div> }</div>
-            { shouldShowLanding ? <p>Landing</p> : <p>Home</p> }
-            <button onClick={ toggle }>Váltás</button>
 
-            <button onClick={ setPageName("Home") }>Home</button>
-            <button onClick={ setPageName("About") }>About</button>
-            <button onClick={ setPageName("Landing") }>Contact</button>
-            <br />
-            <div>{ pageName === "Home" && <div>Homepage component</div> }</div>
-            <div>{ pageName === "About" && <div>About component</div> }</div>
-            <div>{ pageName === "Landing" && <div>Landing component</div> }</div>
+            <hr />
+            <p className="myP">Third Paragraph</p>
         </div>
-
     )
-}
+};
   
 export default App;
